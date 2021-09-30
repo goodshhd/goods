@@ -1,7 +1,7 @@
 import React from "react";
 import { signIn, getSession } from "next-auth/client";
 import Image from "next/image";
-import withLayout from "../../components/withLayout";
+import withLayoutAuth from "../../components/withLayoutAuth";
 import arrowDown from '../../public/icon/arrow-down.svg';
 import logoWhite from '../../public/images/logo-goods-white.svg';
 import Button from "../../components/Button";
@@ -43,7 +43,7 @@ const SignIn = () => {
     )
 }
 
-export default withLayout(SignIn);
+export default withLayoutAuth(SignIn);
 
 export async function getServerSideProps(context) {
     const session = await getSession(context);

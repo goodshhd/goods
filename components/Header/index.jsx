@@ -96,7 +96,7 @@ const Header = () => {
             {
                 toggleMobileMenu &&
                 <div className="md:hidden" id="mobile-menu">
-                    <MobileMenu user={session.user} menuTabs={tabs} settingsTabs={mobileSettingsTabs}/>
+                    <MobileMenu user={session.user || 'John Doe'} menuTabs={tabs} settingsTabs={mobileSettingsTabs}/>
                 </div>
             }
         </nav>
