@@ -10,7 +10,7 @@ const SignIn = () => {
             <div className="max-w-md w-full space-y-8">
                 <div>
                     <div className="flex w-full items-center justify-center" >
-                        <Image src={logo} height={100} width={100} alt='leaf-logo' />
+                        <Image src={logo} height={100} width={190} alt='leaf-logo' />
                     </div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         Sign in to your account
