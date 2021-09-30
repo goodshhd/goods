@@ -1,5 +1,5 @@
 import Image from "next/image";
-import settingIcon from "../../public/static/icon/setting-icon.svg";
+import settingIcon from "../../public/icon/setting-icon.svg";
 
 const SettingButton = ({handleShowDropDown}) => (
     <div>

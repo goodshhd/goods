@@ -2,6 +2,7 @@ import React from "react";
 import {getSession} from "next-auth/client";
 import Head from "next/head";
 import Header from "../../../components/Header";
+import withLayout from '../../../components/withLayout';
 
 const Workboard = () => {
     return (
@@ -31,7 +32,7 @@ const Workboard = () => {
     )
 }
 
-export default Workboard;
+export default withLayout(Workboard);
 
 export async function getServerSideProps(context) {
     const session = await getSession(context);

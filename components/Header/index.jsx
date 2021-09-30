@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Image from "next/image";
-import logo from "../../public/static/images/logo-white.png";
+import logo from "../../public/images/logo-goods-white.svg";
 import DropdownWrapper from "../DropdownWrapper";
 import {signOut, useSession} from "next-auth/client";
 import Nav from "../Nav";

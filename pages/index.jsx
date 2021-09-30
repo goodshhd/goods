@@ -1,7 +1,7 @@
 import Head from "next/head";
 import {getSession} from "next-auth/client";
 
-const StartingPage = () => {
+const Home = () => {
     return (
         <Head>
             <title>Leaf App</title>
@@ -10,7 +10,7 @@ const StartingPage = () => {
     )
 }
 
-export default StartingPage
+export default Home
 
 export async function getServerSideProps(context) {
     const session = await getSession(context);
