@@ -1,6 +1,6 @@
 import React from "react";
 import {getSession} from "next-auth/client";
-import withLayout from '../../../components/withLayoutAuth';
+import withLayout from '../../../components/withLayout';
 
 const Workboard = () => {
     return (
