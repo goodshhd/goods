@@ -1,7 +1,9 @@
-import {Provider} from 'next-auth/client'
-import 'tailwindcss/tailwind.css'
+import React from 'react';
+import {Provider} from 'next-auth/client';
+import 'tailwindcss/tailwind.css';
+import PropTypes from 'prop-types';
 
-export default function App({Component, pageProps}) {
+const App = ({Component, pageProps}) => {
     return (
         <Provider
             options={{
@@ -11,5 +13,12 @@ export default function App({Component, pageProps}) {
             session={pageProps.session}>
             <Component {...pageProps} />
         </Provider>
-    )
-}
+    );
+};
+
+export default App;
+
+App.propTypes = {
+    Component: PropTypes.func,
+    pageProps: PropTypes.object
+};

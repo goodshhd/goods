@@ -1,8 +1,9 @@
-import React from "react";
-import Head from "next/head";
-import Header from "../Header";
+import React from 'react';
+import Head from 'next/head';
+import Header from '../Header';
+import PropTypes from 'prop-types';
 
-const withLayoutAuth = Component => () => {
+const withLayout = Component => () => {
     return (
         <>
             <Head>
@@ -10,9 +11,13 @@ const withLayoutAuth = Component => () => {
                 <link rel='icon' href='/favicon.ico'/>
             </Head>
             <Header />
-            <Component />
+            {<Component/> || Component.name || Component.displayName}
         </>
     );
 };
 
-export default withLayoutAuth;
+export default withLayout;
+
+withLayout.propTypes = {
+    Component: PropTypes.element
+};
