@@ -25,4 +25,4 @@ SmallButton.propTypes = {
 SmallButton.defaultProps = {
     handleClick: () => {},
     icon: {}
-}
+};

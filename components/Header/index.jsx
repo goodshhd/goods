@@ -7,7 +7,7 @@ import Nav from '../Nav';
 import SmallButton from '../SmallButton';
 import MobileMenuButton from '../MobileMenuButton';
 import MobileMenu from '../MobileMenu';
-import useOutsideClick from "../../utils/hooks/useOutsideClick";
+import useOutsideClick from '../../utils/hooks/useOutsideClick';
 import settingIcon from '../../public/icon/setting-icon.svg';
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import DateRangePickerCustom from '../dateRangePickerCustom';
 import Input from '../Input';
-import Select from "../Select";
+import Select from '../Select';
 
 const Filter = () => {
     return (
