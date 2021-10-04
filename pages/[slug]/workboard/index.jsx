@@ -1,6 +1,7 @@
 import React from 'react';
 import {getSession} from 'next-auth/client';
 import withLayout from '../../../components/withLayout';
+import Filter from '../../../components/Filter';
 
 const Workboard = () => {
     return (
@@ -8,14 +9,14 @@ const Workboard = () => {
             <header className='bg-white shadow'>
                 <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
                     <h1 className='text-3xl font-bold text-gray-900'>
-                        Dashboard
+                        Workboard
                     </h1>
                 </div>
             </header>
             <main>
                 <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
                     <div className='px-4 py-6 sm:px-0'>
-                        <div className='border-4 border-dashed border-gray-200 rounded-lg h-96'/>
+                        <Filter />
                     </div>
                 </div>
             </main>
