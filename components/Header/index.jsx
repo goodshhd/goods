@@ -2,16 +2,17 @@ import React, {useState, useRef} from 'react';
 import Image from 'next/image';
 import logo from '../../public/images/logo-goods-white.svg';
 import DropdownWrapper from '../DropdownWrapper';
-import {signOut, useSession} from 'next-auth/client';
+import {signOut} from 'next-auth/client';
 import Nav from '../Nav';
 import SmallButton from '../SmallButton';
 import MobileMenuButton from '../MobileMenuButton';
 import MobileMenu from '../MobileMenu';
 import useOutsideClick from '../../utils/hooks/useOutsideClick';
 import settingIcon from '../../public/icon/setting-icon.svg';
+import {useRecoilValue} from 'recoil';
+import {headerTabsState, mobileTabsState} from '../../recoil/atoms';
 
 const Header = () => {
-    const [session] = useSession();
     const [showDD, setShowDD] = useState(false);
     const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
     const handleCloseDD = () => setShowDD(false);
@@ -20,46 +21,8 @@ const Header = () => {
     const wrapper = useRef(null);
     useOutsideClick(wrapper, handleCloseDD);
 
-    const tabs = [
-        {
-            link: `/${session.user.email}/workboard`,
-            title: 'Workboard'
-        },
-        {
-            link: '#',
-            title: 'Team'
-        },
-        {
-            link: '#',
-            title: 'Projects'
-        },
-        {
-            link: '#',
-            title: 'Calendar'
-        },
-        {
-            link: '#',
-            title: 'Reports'
-        },
-    ];
-
-    const mobileSettingsTabs = [
-        {
-            link: '#',
-            title: 'Your Profile',
-            action: null
-        },
-        {
-            link: '#',
-            title: 'Settings',
-            action: null
-        },
-        {
-            link: '#',
-            title: 'Sign out',
-            action: signOut,
-        },
-    ];
+    const tabsData = useRecoilValue(headerTabsState);
+    const mobileTabsData = useRecoilValue(mobileTabsState);
 
     return (
         <nav className='bg-yellow-500'>
@@ -70,7 +33,7 @@ const Header = () => {
                             <Image height={50} width={50} src={logo} alt='Workflow'/>
                         </div>
                         <div className='hidden md:block text-sm'>
-                            <Nav tabsData={tabs}/>
+                            <Nav tabsData={tabsData} />
                         </div>
                     </div>
                     <div className='hidden md:block'>
@@ -92,14 +55,14 @@ const Header = () => {
                         </div>
                     </div>
                     <div className='-mr-2 flex md:hidden'>
-                        <MobileMenuButton handleMobileMenu={() => setToggleMobileMenu(!toggleMobileMenu)}/>
+                        <MobileMenuButton handleMobileMenu={() => setToggleMobileMenu(!toggleMobileMenu)} />
                     </div>
                 </div>
             </div>
             {
                 toggleMobileMenu &&
                 <div className='md:hidden'>
-                    <MobileMenu user={session.user || 'John Doe'} menuTabs={tabs} settingsTabs={mobileSettingsTabs}/>
+                    <MobileMenu menuTabs={tabsData} settingsTabs={mobileTabsData}/>
                 </div>
             }
         </nav>
