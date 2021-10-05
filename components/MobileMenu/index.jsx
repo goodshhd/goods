@@ -7,11 +7,13 @@ import {useRecoilValue} from 'recoil';
 
 import PropTypes from 'prop-types';
 
-import {userState} from '../../recoil/selectors';
+import {headerTabsState, mobileTabsState, userData} from "../../recoil/atoms";
 
-const MobileMenu = ({menuTabs, settingsTabs}) => {
+const MobileMenu = () => {
     const {asPath} = useRouter();
-    const user = useRecoilValue(userState);
+    const user = useRecoilValue(userData);
+    const mobileTabsData = useRecoilValue(mobileTabsState);
+    const menuTabs = useRecoilValue(headerTabsState);
 
     const renderItems = (tab, i) => (
         <Tab
@@ -36,7 +38,7 @@ const MobileMenu = ({menuTabs, settingsTabs}) => {
                     </div>
                 </div>
                 <div className='mt-3 px-2 space-y-1 flex flex-col text-md'>
-                    {settingsTabs.map(renderItems)}
+                    {mobileTabsData.map(renderItems)}
                 </div>
             </div>
         </>

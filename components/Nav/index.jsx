@@ -4,10 +4,12 @@ import Tab from '../Tab';
 
 import {useRouter} from 'next/router';
 
-import PropTypes from 'prop-types';
+import {useRecoilValue} from "recoil";
+import {headerTabsState} from "../../recoil/atoms";
 
-const Nav = ({tabsData}) => {
+const Nav = () => {
     const {asPath} = useRouter();
+    const tabsData = useRecoilValue(headerTabsState);
 
     const renderItems = (tab, i) => (
         <Tab
@@ -26,11 +28,3 @@ const Nav = ({tabsData}) => {
 };
 
 export default Nav;
-
-Nav.propTypes = {
-    tabsData: PropTypes.array
-};
-
-Nav.defaultProps = {
-    tabsData: []
-};
