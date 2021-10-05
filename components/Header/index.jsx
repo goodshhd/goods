@@ -3,10 +3,7 @@ import React, {useState, useRef} from 'react';
 import logo from '../../public/images/logo-goods-white.svg';
 import settingIcon from '../../public/icon/setting-icon.svg';
 
-import {useRecoilValue} from 'recoil';
 import {signOut} from 'next-auth/client';
-
-import {headerTabsState, mobileTabsState} from '../../recoil/atoms';
 
 import Nav from '../Nav';
 import Image from 'next/image';
@@ -27,9 +24,6 @@ const Header = () => {
     const wrapper = useRef(null);
     useOutsideClick(wrapper, handleCloseDropDown);
 
-    const tabsData = useRecoilValue(headerTabsState);
-    const mobileTabsData = useRecoilValue(mobileTabsState);
-
     return (
         <nav className='bg-yellow-500'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -39,7 +33,7 @@ const Header = () => {
                             <Image height={50} width={50} src={logo} alt='Workflow'/>
                         </div>
                         <div className='hidden md:block text-sm'>
-                            <Nav tabsData={tabsData} />
+                            <Nav />
                         </div>
                     </div>
                     <div className='hidden md:block'>
@@ -68,7 +62,7 @@ const Header = () => {
             {
                 toggleMobileMenu &&
                 <div className='md:hidden'>
-                    <MobileMenu menuTabs={tabsData} settingsTabs={mobileTabsData}/>
+                    <MobileMenu />
                 </div>
             }
         </nav>

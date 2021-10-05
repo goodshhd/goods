@@ -12,7 +12,7 @@ import {userData} from '../../recoil/atoms';
 const withLayout = Component => () => {
 
     const session = useSession();
-    const [user, setUser] = useRecoilState(userData);
+    const [user,setUser] = useRecoilState(userData);
 
     useEffect(() => {
         setUser(session[0].user);
@@ -24,7 +24,7 @@ const withLayout = Component => () => {
                 <title>Leaf App</title>
                 <link rel='icon' href='/favicon.ico'/>
             </Head>
-            <Header user={user}/>
+            <Header />
             {<Component /> || Component.name || Component.displayName}
         </>
     );
