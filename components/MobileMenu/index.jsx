@@ -1,9 +1,13 @@
 import React from 'react';
+
 import Tab from '../Tab';
+
 import {useRouter} from 'next/router';
+import {useRecoilValue} from 'recoil';
+
 import PropTypes from 'prop-types';
-import {useRecoilValue} from "recoil";
-import {userState} from "../../recoil/selectors";
+
+import {userState} from '../../recoil/selectors';
 
 const MobileMenu = ({menuTabs, settingsTabs}) => {
     const {asPath} = useRouter();

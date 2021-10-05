@@ -1,12 +1,16 @@
 import React, {useEffect} from 'react';
+
 import Head from 'next/head';
 import Header from '../Header';
+
+import {useRecoilState} from 'recoil';
+import {useSession} from 'next-auth/client';
+
 import PropTypes from 'prop-types';
-import {useRecoilState} from "recoil";
-import {userData} from "../../recoil/atoms";
-import {useSession} from "next-auth/client";
+import {userData} from '../../recoil/atoms';
 
 const withLayout = Component => () => {
+
     const session = useSession();
     const [user, setUser] = useRecoilState(userData);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 const DropdownWrapper = ({ children, toggle }) => {
@@ -16,8 +17,8 @@ const DropdownWrapper = ({ children, toggle }) => {
 export default DropdownWrapper;
 
 DropdownWrapper.propType = {
-    children: PropTypes.any,
-    toggle: PropTypes.func
+    toggle: PropTypes.func,
+    children: PropTypes.any
 };
 
 DropdownWrapper.defaultProps = {
