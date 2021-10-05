@@ -1,11 +1,15 @@
 import React, {useState, useRef} from 'react';
-import PropTypes from 'prop-types';
+
 import useOutsideClick from '../../utils/hooks/useOutsideClick';
 
+import PropTypes from 'prop-types';
+
 const Select = ({placeholder, label}) => {
+
     const [toggle, setToggle] = useState(false);
-    const handleCloseWin = () => setToggle(false);
+
     const handleToggle = () => setToggle(!toggle);
+    const handleCloseWin = () => setToggle(false);
 
     const wrapper = useRef(null);
     useOutsideClick(wrapper, handleCloseWin);

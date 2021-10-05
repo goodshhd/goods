@@ -1,8 +1,11 @@
 import React from 'react';
-import {Provider} from 'next-auth/client';
+
 import 'tailwindcss/tailwind.css';
+
+import {RecoilRoot} from 'recoil';
+import {Provider} from 'next-auth/client';
+
 import PropTypes from 'prop-types';
-import {RecoilRoot} from 'recoil'
 
 const App = ({Component, pageProps}) => {
     return (
@@ -25,3 +28,8 @@ App.propTypes = {
     Component: PropTypes.func,
     pageProps: PropTypes.object
 };
+
+App.defaultProps = {
+    Component: () => {},
+    pageProps: {}
+}

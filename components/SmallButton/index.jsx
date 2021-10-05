@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Image from 'next/image';
+
 import PropTypes from 'prop-types';
 
 const SmallButton = ({handleClick, icon, color}) => (
@@ -18,11 +20,13 @@ const SmallButton = ({handleClick, icon, color}) => (
 export default SmallButton;
 
 SmallButton.propTypes = {
-    handleShowDropDown: PropTypes.func,
-    icon: PropTypes.object
+    icon: PropTypes.object,
+    color: PropTypes.string,
+    handleShowDropDown: PropTypes.func
 };
 
 SmallButton.defaultProps = {
-    handleClick: () => {},
-    icon: {}
+    icon: {},
+    color: '',
+    handleClick: () => {}
 };

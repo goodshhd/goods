@@ -1,25 +1,31 @@
 import React, {useState, useRef} from 'react';
-import Image from 'next/image';
+
 import logo from '../../public/images/logo-goods-white.svg';
-import DropdownWrapper from '../DropdownWrapper';
-import {signOut} from 'next-auth/client';
-import Nav from '../Nav';
-import SmallButton from '../SmallButton';
-import MobileMenuButton from '../MobileMenuButton';
-import MobileMenu from '../MobileMenu';
-import useOutsideClick from '../../utils/hooks/useOutsideClick';
 import settingIcon from '../../public/icon/setting-icon.svg';
+
 import {useRecoilValue} from 'recoil';
+import {signOut} from 'next-auth/client';
+
 import {headerTabsState, mobileTabsState} from '../../recoil/atoms';
 
+import Nav from '../Nav';
+import Image from 'next/image';
+import MobileMenu from '../MobileMenu';
+import SmallButton from '../SmallButton';
+import DropdownWrapper from '../DropdownWrapper';
+import MobileMenuButton from '../MobileMenuButton';
+import useOutsideClick from '../../utils/hooks/useOutsideClick';
+
 const Header = () => {
-    const [showDD, setShowDD] = useState(false);
+
+    const [showDropDown, setShowDropDown] = useState(false);
     const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-    const handleCloseDD = () => setShowDD(false);
-    const handleShowDD = () => setShowDD(!showDD);
+
+    const handleShowDropDown = () => setShowDropDown(!showDropDown);
+    const handleCloseDropDown = () => setShowDropDown(false);
 
     const wrapper = useRef(null);
-    useOutsideClick(wrapper, handleCloseDD);
+    useOutsideClick(wrapper, handleCloseDropDown);
 
     const tabsData = useRecoilValue(headerTabsState);
     const mobileTabsData = useRecoilValue(mobileTabsState);
@@ -39,8 +45,8 @@ const Header = () => {
                     <div className='hidden md:block'>
                         <div className='ml-4 flex items-center md:ml-6'>
                             <div className='ml-3 relative' ref={wrapper}>
-                                <SmallButton handleClick={handleShowDD} icon={settingIcon} color='bg-yellow-600'/>
-                                <DropdownWrapper toggle={showDD}>
+                                <SmallButton handleClick={handleShowDropDown} icon={settingIcon} color='bg-yellow-600'/>
+                                <DropdownWrapper toggle={showDropDown}>
                                     <div
                                         className='origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
                                         <a href='#' className='block px-4 py-2 text-sm text-gray-700'>Your Profile</a>

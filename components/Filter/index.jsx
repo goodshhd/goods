@@ -1,10 +1,12 @@
 import React from 'react';
-import DateRangePickerCustom from '../DateRangePickerCustom';
+
 import Input from '../Input';
 import Select from '../Select';
+import DateRangePickerCustom from '../DateRangePickerCustom';
 
 const Filter = () => {
     const handleChange = data => {
+        //feature in Progress...
         console.log(data);
     };
 

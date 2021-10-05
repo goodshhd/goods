@@ -1,18 +1,26 @@
 import React, {useState, useRef} from 'react';
-import SmallButton from '../SmallButton';
-import arrowLeft from '../../public/icon/arrow-left.svg';
-import arrowRight from '../../public/icon/arrow-right.svg';
-import moment from 'moment';
-import DateRangePicker from 'react-daterange-picker';
-import Button from '../Button';
 
 import 'react-daterange-picker/dist/css/react-calendar.css';
+
 import styles from './styles.module.css';
+
+import arrowLeft from '../../public/icon/arrow-left.svg';
+import arrowRight from '../../public/icon/arrow-right.svg';
+
+import DateRangePicker from 'react-daterange-picker';
+
+import Button from '../Button';
+import SmallButton from '../SmallButton';
+
+import moment from 'moment';
+
 import useOutsideClick from '../../utils/hooks/useOutsideClick';
 
 const DateRangePickerCustom = ({onChange, value}) => {
+
     const [date, setDate] = useState(value);
     const [isOpen, setIsOpen] = useState(null);
+
     const onSave = () => {
         setIsOpen(false);
         onChange(date);

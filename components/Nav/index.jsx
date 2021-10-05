@@ -1,6 +1,10 @@
 import React from 'react';
+
 import Tab from '../Tab';
+
 import {useRouter} from 'next/router';
+
+import PropTypes from "prop-types";
 
 const Nav = ({tabsData}) => {
     const {asPath} = useRouter();
@@ -22,3 +26,11 @@ const Nav = ({tabsData}) => {
 };
 
 export default Nav;
+
+Nav.propTypes = {
+    tabsData: PropTypes.array
+};
+
+Nav.defaultProps = {
+    tabsData: []
+};
