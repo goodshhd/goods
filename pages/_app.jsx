@@ -32,4 +32,4 @@ App.propTypes = {
 App.defaultProps = {
     Component: () => {},
     pageProps: {}
-}
+};

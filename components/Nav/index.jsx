@@ -4,7 +4,7 @@ import Tab from '../Tab';
 
 import {useRouter} from 'next/router';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const Nav = ({tabsData}) => {
     const {asPath} = useRouter();
