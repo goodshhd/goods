@@ -2,6 +2,7 @@ import React from 'react';
 import {Provider} from 'next-auth/client';
 import 'tailwindcss/tailwind.css';
 import PropTypes from 'prop-types';
+import {RecoilRoot} from 'recoil'
 
 const App = ({Component, pageProps}) => {
     return (
@@ -11,7 +12,9 @@ const App = ({Component, pageProps}) => {
                 keepAlive: 0
             }}
             session={pageProps.session}>
-            <Component {...pageProps} />
+            <RecoilRoot>
+                <Component {...pageProps} />
+            </RecoilRoot>
         </Provider>
     );
 };

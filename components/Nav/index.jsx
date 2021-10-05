@@ -22,7 +22,3 @@ const Nav = ({tabsData}) => {
 };
 
 export default Nav;
-
-Nav.propTypes = {
-
-};

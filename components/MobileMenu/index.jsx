@@ -2,9 +2,12 @@ import React from 'react';
 import Tab from '../Tab';
 import {useRouter} from 'next/router';
 import PropTypes from 'prop-types';
+import {useRecoilValue} from "recoil";
+import {userState} from "../../recoil/selectors";
 
-const MobileMenu = ({user, menuTabs, settingsTabs}) => {
+const MobileMenu = ({menuTabs, settingsTabs}) => {
     const {asPath} = useRouter();
+    const user = useRecoilValue(userState);
 
     const renderItems = (tab, i) => (
         <Tab
@@ -25,7 +28,7 @@ const MobileMenu = ({user, menuTabs, settingsTabs}) => {
                 <div className='flex items-center px-5'>
                     <div className='bg-yellow-600 w-full p-2 rounded-md'>
                         <div className='text-base font-medium leading-none text-white'>Some User</div>
-                        <div className='text-sm font-medium leading-none text-white mt-2'>{user.email || user.name}</div>
+                        <div className='text-sm font-medium leading-none text-white mt-2'>{user.email || user.name || 'Default Value'}</div>
                     </div>
                 </div>
                 <div className='mt-3 px-2 space-y-1 flex flex-col text-md'>
