@@ -1,31 +1,10 @@
 import { atom } from 'recoil';
-import { session, signOut } from "next-auth/client";
+import { signOut } from "next-auth/client";
 
 
 export const headerTabsState = atom({
     key: 'headerTabsState',
-    default: [
-        {
-            link: `/${session?.user?.email}/workboard`,
-            title: 'Workboard'
-        },
-        {
-            link: '#',
-            title: 'Team'
-        },
-        {
-            link: '#',
-            title: 'Projects'
-        },
-        {
-            link: '#',
-            title: 'Calendar'
-        },
-        {
-            link: '#',
-            title: 'Reports'
-        },
-    ]
+    default: []
 });
 
 export const mobileTabsState = atom({
