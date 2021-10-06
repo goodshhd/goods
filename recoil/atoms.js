@@ -3,12 +3,12 @@ import { signOut } from "next-auth/client";
 
 
 export const userData = atom({
-    key: 'userData',
+    key: 'userKey',
     default: {}
 });
 
 export const tableData = atom({
-    key: 'tableData',
+    key: 'tableKey',
     default: [
         {
             userId: 1,
@@ -62,22 +62,22 @@ export const tableData = atom({
 });
 
 export const selectedFilter = atom({
-    key: 'selectedFilter',
+    key: 'selectedFilterKey',
     default: ''
 });
 
 export const codeInputState = atom({
-    key: 'codeInputState',
+    key: 'codeInputKey',
     default: ''
 });
 
 export const companyDataState = atom({
-    key: 'companyDataState',
+    key: 'companyDataKey',
     default: ''
 });
 
 export const mobileTabsState = atom({
-    key: 'mobileTabsState',
+    key: 'mobileKey',
     default: [
         {
             link: '#',
@@ -98,6 +98,6 @@ export const mobileTabsState = atom({
 });
 
 export const headerTabsState = atom({
-    key: 'headerTabsState',
+    key: 'headerKey',
     default: []
 });
