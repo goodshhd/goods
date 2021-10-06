@@ -4,8 +4,8 @@ import Tab from '../Tab';
 
 import {useRouter} from 'next/router';
 
-import {useRecoilValue} from "recoil";
-import {headerTabsState} from "../../recoil/atoms";
+import {useRecoilValue} from 'recoil';
+import {headerTabsState} from '../../recoil/atoms';
 
 const Nav = () => {
     const {asPath} = useRouter();

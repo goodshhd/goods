@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Header from '../Header';
 
 import {useRecoilState} from 'recoil';
-import {session, useSession} from 'next-auth/client';
+import {useSession} from 'next-auth/client';
 
 import PropTypes from 'prop-types';
 import {headerTabsState, userData} from '../../recoil/atoms';
@@ -12,8 +12,8 @@ import {headerTabsState, userData} from '../../recoil/atoms';
 const withLayout = Component => () => {
 
     const session = useSession();
-    const [user,setUser] = useRecoilState(userData);
-    const [sessionData, setSessionData] = useRecoilState(headerTabsState);
+    const [,setUser] = useRecoilState(userData);
+    const [,setSessionData] = useRecoilState(headerTabsState);
 
     const userEmail = session[0].user.email;
 
