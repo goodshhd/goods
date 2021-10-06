@@ -7,12 +7,43 @@ import {useRecoilState} from 'recoil';
 import {useSession} from 'next-auth/client';
 
 import PropTypes from 'prop-types';
-import {userData} from '../../recoil/atoms';
+import {headerTabsState, userData} from '../../recoil/atoms';
 
 const withLayout = Component => () => {
 
     const session = useSession();
-    const [user,setUser] = useRecoilState(userData);
+    const [,setUser] = useRecoilState(userData);
+    const [,setSessionData] = useRecoilState(headerTabsState);
+
+    const userEmail = session[0].user.email;
+
+    useEffect(() => {
+        setSessionData((oldData) =>
+            [
+                ...oldData,
+                {
+                    link: `/${userEmail}/workboard`,
+                    title: 'Workboard'
+                },
+                {
+                    link: '#',
+                    title: 'Team'
+                },
+                {
+                    link: '#',
+                    title: 'Projects'
+                },
+                {
+                    link: '#',
+                    title: 'Calendar'
+                },
+                {
+                    link: '#',
+                    title: 'Reports'
+                },
+            ]
+        );
+    }, [userEmail]);
 
     useEffect(() => {
         setUser(session[0].user);
