@@ -4,8 +4,12 @@ import {getSession} from 'next-auth/client';
 
 import Filter from '../../../components/Filter';
 import withLayout from '../../../components/withLayout';
+import {useRecoilValue} from 'recoil';
+import {filterTableData} from '../../../recoil/selectors';
 
 const Workboard = () => {
+    const _filterTableData = useRecoilValue(filterTableData);
+
     return (
         <section>
             <header className='bg-white shadow'>
@@ -22,6 +26,16 @@ const Workboard = () => {
                     </div>
                 </div>
             </main>
+            <div>
+                {_filterTableData.map((data, i) => (
+                    <ul key={`${i}-${data.userId}`}>
+                        <li>{data.code}</li>
+                        <li>{data.company}</li>
+                        <li>{data.title}</li>
+                    </ul>
+                ))}
+
+            </div>
         </section>
     );
 };

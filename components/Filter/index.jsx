@@ -4,10 +4,26 @@ import Input from '../Input';
 import Select from '../Select';
 import DateRangePickerCustom from '../DateRangePickerCustom';
 
+import {useRecoilState} from 'recoil';
+
+import {codeInputState, companyDataState, selectedFilter} from '../../recoil/atoms';
+
 const Filter = () => {
+    const [value, setValue] = useRecoilState(codeInputState);
+    const [,setFilterType] = useRecoilState(selectedFilter);
+    const [selectedValue,setSelectedValue] = useRecoilState(companyDataState);
+
     const handleChange = data => {
         //feature in Progress...
         console.log(data);
+    };
+    const handleChangeInput = ({target: {value}}) => {
+        setValue(value);
+        setFilterType('code');
+    };
+    const handleSelectCompany = selected => {
+        setSelectedValue(selected);
+        setFilterType('company');
     };
 
     return (
@@ -19,10 +35,21 @@ const Filter = () => {
                 <DateRangePickerCustom onChange={(e) => handleChange({data: e})}/>
                 <div className='flex items-left justify-center flex-col md:flex-row md:items-center'>
                     <div className='mx-4 mt-8 md:mt-0'>
-                        <Input placeholder='VB720' label='Code' />
+                        <Input
+                            type='text'
+                            label='Code'
+                            value={value}
+                            placeholder='VB720'
+                            onChange={handleChangeInput}
+                        />
                     </div>
                     <div className='mx-4 mt-8 md:mt-0'>
-                        <Select placeholder='ART-UA' label='Company'/>
+                        <Select
+                            label='Company'
+                            placeholder='ART-UA'
+                            selectedValue={selectedValue}
+                            onClick={handleSelectCompany}
+                        />
                     </div>
                 </div>
             </div>

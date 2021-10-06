@@ -4,7 +4,7 @@ import useOutsideClick from '../../utils/hooks/useOutsideClick';
 
 import PropTypes from 'prop-types';
 
-const Select = ({placeholder, label}) => {
+const Select = ({placeholder, label, onClick, selectedValue}) => {
 
     const [toggle, setToggle] = useState(false);
 
@@ -14,16 +14,20 @@ const Select = ({placeholder, label}) => {
     const wrapper = useRef(null);
     useOutsideClick(wrapper, handleCloseWin);
 
+    const handleSelect = (name) => {
+        onClick(name);
+    };
+
     return (
         <div>
             <label className='block text-sm font-medium text-gray-700'>
                 {label}
             </label>
-            <div className='mt-1 relative'ref={wrapper}>
+            <div className='mt-1 relative' ref={wrapper}>
                 <button type='button'
-                        className='relative w-full text-gray-300 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm' onClick={handleToggle}>
+                        className='relative w-full text-gray-600 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm' onClick={handleToggle}>
                          <span className='flex items-center'>
-                            {placeholder}
+                            {selectedValue ? selectedValue : placeholder}
                          </span>
                     <span className='ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
                         <svg className='h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg' viewBox='0 0 20 20'
@@ -37,7 +41,7 @@ const Select = ({placeholder, label}) => {
                 {toggle && (
                     <ul className='absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'>
                         <li className='text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9'>
-                            <span className='font-normal ml-3 block truncate'>
+                            <span className='font-normal ml-3 block truncate' onClick={() => handleSelect('ART-UA')}>
                                     Wade Cooper
                             </span>
                         </li>
@@ -51,11 +55,13 @@ const Select = ({placeholder, label}) => {
 export default Select;
 
 Select.propTypes = {
+    label: PropTypes.string,
     placeholder: PropTypes.string,
-    label: PropTypes.string
+    selectedValue: PropTypes.string
 };
 
 Select.defaultProps = {
+    label: '',
     placeholder: '',
-    label: ''
+    selectedValue: ''
 };
