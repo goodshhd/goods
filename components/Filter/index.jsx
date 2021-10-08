@@ -14,7 +14,7 @@ const Filter = () => {
     const [selectedValue,setSelectedValue] = useRecoilState(companyDataState);
 
     const handleChange = data => {
-        //feature in Progress...
+        //TODO:logic for data change
         console.log(data);
     };
     const handleChangeInput = ({target: {value}}) => {
