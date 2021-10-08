@@ -14,6 +14,7 @@ export const tableData = atom({
             userId: 1,
             code: 'VB720',
             company: 'ART-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
@@ -22,6 +23,7 @@ export const tableData = atom({
             userId: 1,
             code: 'VB800',
             company: 'A-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
@@ -30,6 +32,7 @@ export const tableData = atom({
             userId: 1,
             code: 'VB300',
             company: 'A-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
@@ -38,6 +41,7 @@ export const tableData = atom({
             userId: 1,
             code: 'KB800',
             company: 'A-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
@@ -46,6 +50,7 @@ export const tableData = atom({
             userId: 1,
             code: 'SB80',
             company: 'FA-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
@@ -54,6 +59,7 @@ export const tableData = atom({
             userId: 1,
             code: 'EB00',
             company: 'RRR-UA',
+            status: 'Active',
             id: 1,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"

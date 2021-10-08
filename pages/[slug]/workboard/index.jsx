@@ -1,65 +1,57 @@
-import React from 'react';
+import React from "react";
 
-import {getSession} from 'next-auth/client';
+import { getSession } from "next-auth/client";
 
-import Filter from '../../../components/Filter';
-import withLayout from '../../../components/withLayout';
-import {useRecoilValue} from 'recoil';
-import {filterTableData} from '../../../recoil/selectors';
+import Filter from "../../../components/Filter";
+import withLayout from "../../../utils/hoc/withLayout";
+
+import Table from "../../../components/Table";
+import TableRows from "../../../components/TableRows";
 
 const Workboard = () => {
-    const _filterTableData = useRecoilValue(filterTableData);
+  const renderRows = (item, i) => (
+    <TableRows key={`${i}-${item.id}`} fi={item.company} se={item.code} th={item.userId} fr={item.status} />
+  );
 
-    return (
-        <section>
-            <header className='bg-white shadow'>
-                <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
-                    <h1 className='text-3xl font-bold text-gray-900'>
-                        Workboard
-                    </h1>
-                </div>
-            </header>
-            <main>
-                <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
-                    <div className='px-4 py-6 sm:px-0'>
-                        <Filter />
-                    </div>
-                </div>
-            </main>
-            <div>
-                {_filterTableData.map((data, i) => (
-                    <ul key={`${i}-${data.userId}`}>
-                        <li>{data.code}</li>
-                        <li>{data.company}</li>
-                        <li>{data.title}</li>
-                    </ul>
-                ))}
-
-            </div>
-        </section>
-    );
+  return (
+    <section>
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-gray-900">Workboard</h1>
+        </div>
+      </header>
+      <main>
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <div className="px-4 py-6 sm:px-0">
+            <Filter />
+          </div>
+          <Table render={ data => data.map(renderRows)} />
+        </div>
+      </main>
+    </section>
+  );
 };
 
 export default withLayout(Workboard);
 
 export async function getServerSideProps(context) {
-    const session = await getSession(context);
+  const session = await getSession(context);
 
-    if (!session) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: '/signIn'
-            },
-            props: {
-                session
-            }
-        };
-    }
-
+  if (!session) {
     return {
-        props: {
-            session
-        }
+      redirect: {
+        permanent: false,
+        destination: "/signIn",
+      },
+      props: {
+        session,
+      },
     };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
 }
