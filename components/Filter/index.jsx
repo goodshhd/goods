@@ -36,6 +36,7 @@ const Filter = () => {
                 <div className='flex items-left justify-center flex-col md:flex-row md:items-center'>
                     <div className='mx-4 mt-8 md:mt-0'>
                         <Input
+                            name='filter_code'
                             type='text'
                             label='Code'
                             value={value}

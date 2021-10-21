@@ -1,66 +1,68 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 
-import Head from 'next/head';
-import Header from '../../../components/Header';
+import Head from "next/head";
 
-import {useRecoilState} from 'recoil';
-import {useSession} from 'next-auth/client';
+import { useRecoilState } from "recoil";
+import { useSession } from "next-auth/client";
 
-import PropTypes from 'prop-types';
-import {headerTabsState, userData} from '../../../recoil/atoms';
+import PropTypes from "prop-types";
+import { headerTabsState, userData } from "../../../recoil/atoms";
+import dynamic from "next/dynamic";
 
-const withLayout = Component => () => {
+const withLayout = (Component) => () => {
+  const session = useSession();
+  const [, setUser] = useRecoilState(userData);
+  const [, setSessionData] = useRecoilState(headerTabsState);
 
-    const session = useSession();
-    const [,setUser] = useRecoilState(userData);
-    const [,setSessionData] = useRecoilState(headerTabsState);
+  const sessionUser = session[0].user;
 
-    const sessionUser = session[0].user;
+  useEffect(() => {
+    setSessionData([
+      {
+        link: `/${sessionUser.email}/workboard`,
+        title: "Workboard",
+      },
+      {
+        link: "#",
+        title: "Team",
+      },
+      {
+        link: "#",
+        title: "Projects",
+      },
+      {
+        link: "#",
+        title: "Calendar",
+      },
+      {
+        link: "#",
+        title: "Reports",
+      },
+    ]);
 
-    useEffect(() => {
-        setSessionData(
-            [
-                {
-                    link: `/${sessionUser.email}/workboard`,
-                    title: 'Workboard'
-                },
-                {
-                    link: '#',
-                    title: 'Team'
-                },
-                {
-                    link: '#',
-                    title: 'Projects'
-                },
-                {
-                    link: '#',
-                    title: 'Calendar'
-                },
-                {
-                    link: '#',
-                    title: 'Reports'
-                },
-            ]
-        );
+    setUser(sessionUser);
+  }, []);
 
-        setUser(sessionUser);
+  // tried new tech ( no matter )
+  const DynamicHeader = dynamic(() => import("../../../components/Header"), {
+    loading: () => <div>Loading...</div>,
+  });
+  // tried new tech ( no matter )
 
-    }, []);
-
-    return (
-        <>
-            <Head>
-                <title>Leaf App</title>
-                <link rel='icon' href='/favicon.ico'/>
-            </Head>
-            <Header />
-            {<Component /> || Component.name || Component.displayName}
-        </>
-    );
+  return (
+    <>
+      <Head>
+        <title>Leaf App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <DynamicHeader />
+      {<Component /> || Component.name || Component.displayName}
+    </>
+  );
 };
 
 export default withLayout;
 
 withLayout.propTypes = {
-    Component: PropTypes.element
+  Component: PropTypes.element,
 };
