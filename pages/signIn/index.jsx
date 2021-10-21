@@ -30,7 +30,7 @@ const SignIn = () => {
                             </h2>
                         </div>
                         <span className='text-white font-normal text-md mt-4 w-96 text-center'>
-                        the place where you can organize your productivity and managing data from business
+                        the place where you can organize your productivity and managing data for business
                     </span>
                     </div>
                 </div>
