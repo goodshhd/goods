@@ -2,12 +2,13 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const Input = ({placeholder, label, onChange, value, type}) => {
+const Input = ({placeholder, label, onChange, value, type, name}) => {
     return (
         <div>
-            <label className='text-sm font-medium text-gray-700'>{label}</label>
+            <label className='text-sm font-medium text-gray-700'>{label || 'Default Input'}</label>
             <div className='mt-1 relative rounded-md shadow-sm'>
                 <input
+                    name={name}
                     type={type}
                     value={value ? value : ''}
                     onChange={onChange}
@@ -23,14 +24,16 @@ export default Input;
 
 Input.propTypes = {
     value: PropTypes.any,
+    name: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     onChange: PropTypes.func,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
 };
 
 Input.defaultProps = {
     type: '',
+    name: '',
     value: '',
     label: '',
     placeholder: '',

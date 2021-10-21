@@ -10,7 +10,13 @@ import TableRows from "../../../components/TableRows";
 
 const Workboard = () => {
   const renderRows = (item, i) => (
-    <TableRows key={`${i}-${item.id}`} fi={item.company} se={item.code} th={item.userId} fr={item.status} />
+    <TableRows
+      key={`${i}-${item.id}`}
+      fi={item.company}
+      se={item.code}
+      th={item.userId}
+      fr={item.status}
+    />
   );
 
   return (
@@ -25,7 +31,7 @@ const Workboard = () => {
           <div className="px-4 py-6 sm:px-0">
             <Filter />
           </div>
-          <Table render={ data => data.map(renderRows)} />
+          <Table render={(data) => data.map(renderRows)} />
         </div>
       </main>
     </section>
