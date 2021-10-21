@@ -8,6 +8,7 @@ import { signIn, getSession } from 'next-auth/client';
 import Head from 'next/head';
 import Image from 'next/image';
 import Button from '../../components/Button';
+import Logo from "../../components/Logo";
 
 
 const SignIn = () => {
@@ -20,7 +21,7 @@ const SignIn = () => {
             <div className='flex'>
                 <div style={{background: `url('../../images/sign-in-bg.png')`}} className='hidden w-1/2 bg-no-repeat bg-cover min-h-screen md:flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
                     <div className='flex flex-col justify-center items-center'>
-                        <Image src={logoWhite}/>
+                        <Logo />
                         <div className='mt-8'>
                             <h2 className='text-center text-6xl font-extrabold text-white font-bold'>
                                 Welcome to
