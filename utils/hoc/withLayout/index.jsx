@@ -8,6 +8,7 @@ import { useSession } from "next-auth/client";
 import PropTypes from "prop-types";
 import { headerTabsState, userData } from "../../../recoil/atoms";
 import dynamic from "next/dynamic";
+import useEmailCutter from "../../hooks/useEmailCutter";
 
 const withLayout = (Component) => () => {
   const session = useSession();
@@ -15,14 +16,12 @@ const withLayout = (Component) => () => {
   const [, setSessionData] = useRecoilState(headerTabsState);
 
   const sessionUser = session[0].user;
-  const email = sessionUser.email
-
-  const useName = email.substring(0, email.lastIndexOf('@'))
+  const {email} = useEmailCutter(sessionUser.email);
 
   useEffect(() => {
     setSessionData([
       {
-        link: `/${useName}/workboard`,
+        link: `/${email}/workboard`,
         title: "Workboard",
       },
       {

@@ -3,6 +3,7 @@ import React from 'react';
 import {getSession} from 'next-auth/client';
 
 import Head from 'next/head';
+import useEmailCutter from "../utils/hooks/useEmailCutter";
 
 const Home = () => {
     return (
@@ -17,14 +18,12 @@ export default Home;
 
 export async function getServerSideProps(context) {
     const session = await getSession(context);
-    const email = session.user.email;
-
-    const useName = email.substring(0, email.lastIndexOf('@'));
+    const {email} = useEmailCutter(session.user.email);
 
     let destination = '/signIn';
 
     if (session) {
-        destination = `/${useName}/workboard`;
+        destination = `/${email}/workboard`;
     }
 
     return {
