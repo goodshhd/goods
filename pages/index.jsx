@@ -17,10 +17,14 @@ export default Home;
 
 export async function getServerSideProps(context) {
     const session = await getSession(context);
+    const email = session.user.email;
+
+    const useName = email.substring(0, email.lastIndexOf('@'));
+
     let destination = '/signIn';
 
     if (session) {
-        destination = `/${session.user.email}/workboard`;
+        destination = `/${useName}/workboard`;
     }
 
     return {

@@ -15,11 +15,14 @@ const withLayout = (Component) => () => {
   const [, setSessionData] = useRecoilState(headerTabsState);
 
   const sessionUser = session[0].user;
+  const email = sessionUser.email
+
+  const useName = email.substring(0, email.lastIndexOf('@'))
 
   useEffect(() => {
     setSessionData([
       {
-        link: `/${sessionUser.email}/workboard`,
+        link: `/${useName}/workboard`,
         title: "Workboard",
       },
       {
