@@ -25,6 +25,7 @@
     "moment-range": "^4.0.2",
     "next": "11.0.0",
     "next-auth": "latest",
+    "next-i18next": "^8.9.0",
     "npm": "^8.1.0",
     "prop-types": "^15.7.2",
     "react": "17.0.2",

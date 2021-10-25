@@ -9,6 +9,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Button from '../../components/Button';
 import Logo from "../../components/Logo";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 
 const SignIn = () => {
@@ -72,6 +73,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
+            ...(await serverSideTranslations(context.locale, ['common'])),
             session
         }
     };

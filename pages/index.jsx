@@ -4,6 +4,7 @@ import {getSession} from 'next-auth/client';
 
 import Head from 'next/head';
 import useEmailCutter from "../utils/hooks/useEmailCutter";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home = () => {
     return (
@@ -32,7 +33,8 @@ export async function getServerSideProps(context) {
             permanent: false
         },
         props: {
-            session
+            ...(await serverSideTranslations(context.locale, ['common'])),
+            session,
         }
     };
 }

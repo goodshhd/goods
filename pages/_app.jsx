@@ -7,6 +7,8 @@ import {Provider} from 'next-auth/client';
 
 import PropTypes from 'prop-types';
 
+import { appWithTranslation } from 'next-i18next';
+
 const App = ({Component, pageProps}) => {
     return (
         <Provider
@@ -22,7 +24,7 @@ const App = ({Component, pageProps}) => {
     );
 };
 
-export default App;
+export default appWithTranslation(App);
 
 App.propTypes = {
     Component: PropTypes.func,
