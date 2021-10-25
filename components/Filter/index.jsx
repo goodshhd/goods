@@ -9,7 +9,7 @@ import {useRecoilState} from 'recoil';
 import {codeInputState, companyDataState, selectedFilter} from '../../recoil/atoms';
 
 const Filter = () => {
-    const [value, setValue] = useRecoilState(codeInputState);
+    const [codeInputValue, setCodeInputValue] = useRecoilState(codeInputState);
     const [,setFilterType] = useRecoilState(selectedFilter);
     const [selectedValue,setSelectedValue] = useRecoilState(companyDataState);
 
@@ -17,8 +17,8 @@ const Filter = () => {
         //TODO:logic for data change
         console.log(data);
     };
-    const handleChangeInput = ({target: {value}}) => {
-        setValue(value);
+    const handleChangeInput = (e) => {
+        setCodeInputValue(e.target.value);
         setFilterType('code');
     };
     const handleSelectCompany = selected => {
@@ -39,7 +39,7 @@ const Filter = () => {
                             name='filter_code'
                             type='text'
                             label='Code'
-                            value={value}
+                            value={codeInputValue}
                             placeholder='VB720'
                             onChange={handleChangeInput}
                         />
