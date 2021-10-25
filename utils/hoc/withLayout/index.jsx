@@ -52,7 +52,7 @@ const withLayout = (Component) => () => {
   return (
     <>
       <Head>
-        <title>Leaf App</title>
+        <title>Goods App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DynamicHeader />
