@@ -12,10 +12,10 @@ const Workboard = () => {
   const renderRows = (item, i) => (
     <TableRows
       key={`${i}-${item.id}`}
-      fi={item.company}
-      se={item.code}
-      th={item.userId}
-      fr={item.status}
+      row1={item.company}
+      row2={item.code}
+      row3={item.userId}
+      row4={item.status}
     />
   );
 
