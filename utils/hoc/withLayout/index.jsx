@@ -7,8 +7,9 @@ import { useSession } from "next-auth/client";
 
 import PropTypes from "prop-types";
 import { headerTabsState, userData } from "../../../recoil/atoms";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import useEmailCutter from "../../hooks/useEmailCutter";
+import Header from "../../../components/Header";
 
 const withLayout = (Component) => () => {
   const session = useSession();
@@ -46,9 +47,9 @@ const withLayout = (Component) => () => {
   }, []);
 
   // tried new tech ( no matter )
-  const DynamicHeader = dynamic(() => import("../../../components/Header"), {
-    loading: () => <div>Loading...</div>,
-  });
+  // const DynamicHeader = dynamic(() => import("../../../components/Header"), {
+  //   loading: () => <div>Loading...</div>,
+  // });
   // tried new tech ( no matter )
 
   return (
@@ -57,7 +58,7 @@ const withLayout = (Component) => () => {
         <title>Goods App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DynamicHeader />
+      <Header />
       {<Component /> || Component.name || Component.displayName}
     </>
   );
