@@ -11,6 +11,7 @@ import DropdownWrapper from "../DropdownWrapper";
 import MobileMenuButton from "../MobileMenuButton";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import Logo from "../Logo";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -34,7 +35,8 @@ const Header = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <div className="ml-3 relative" ref={wrapper}>
+              <div className="ml-3 relative flex items-center" ref={wrapper}>
+                <LanguageSwitcher />
                 <SmallButton
                   handleClick={handleShowDropDown}
                   icon={settingIcon}
