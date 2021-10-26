@@ -7,8 +7,12 @@ import withLayout from "../../../utils/hoc/withLayout";
 
 import Table from "../../../components/Table";
 import TableRows from "../../../components/TableRows";
+import { useTranslation } from 'next-i18next';
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const Workboard = () => {
+  const { t } = useTranslation();
+
   const renderRows = (item, i) => (
     <TableRows
       key={`${i}-${item.id}`}
@@ -23,7 +27,7 @@ const Workboard = () => {
     <section>
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Workboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900">{t("common:Workboard")}</h1>
         </div>
       </header>
       <main>
@@ -57,6 +61,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
+      ...(await serverSideTranslations(context.locale, ['common'])),
       session,
     },
   };
