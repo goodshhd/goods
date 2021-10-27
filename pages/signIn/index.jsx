@@ -1,7 +1,6 @@
 import React from 'react';
 
 import arrowDown from '../../public/icon/arrow-down.svg';
-import logoWhite from '../../public/images/logo-goods-white.svg';
 
 import { signIn, getSession } from 'next-auth/client';
 
@@ -10,9 +9,12 @@ import Image from 'next/image';
 import Button from '../../components/Button';
 import Logo from "../../components/Logo";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
 
 
 const SignIn = () => {
+    const { t } = useTranslation('sign-in');
+    const { t: tB } = useTranslation('buttons');
     return (
         <>
             <Head>
@@ -25,14 +27,14 @@ const SignIn = () => {
                         <Logo />
                         <div className='mt-8'>
                             <h2 className='text-center text-6xl font-extrabold text-white font-bold'>
-                                Welcome to
+                                {t("welcome-sign-in-text")}
                             </h2>
                             <h2 className='text-center text-6xl font-extrabold text-white font-bold'>
-                                Goods
+                                {t("company-name-sign-in-text")}
                             </h2>
                         </div>
                         <span className='text-white font-normal text-md mt-4 w-96 text-center'>
-                        the place where you can organize your productivity and managing data for business
+                        {t("company-description-sign-in-text")}
                     </span>
                     </div>
                 </div>
@@ -40,12 +42,12 @@ const SignIn = () => {
                     <div className='max-w-md w-full space-y-8 items-center justify-center flex flex-col'>
                         <div className='flex flex-col items-center justify-center'>
                             <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900 w-48'>
-                                Sign in to your account
+                                {t("title-sign-in-text")}
                             </h2>
                             <Image src={arrowDown} />
                         </div>
                         <div className='w-48'>
-                            <Button onClick={signIn} buttonText='Sign in' />
+                            <Button onClick={signIn} buttonText={tB("sign-in-button-text")} />
                         </div>
                     </div>
                 </div>
@@ -73,7 +75,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            ...(await serverSideTranslations(context.locale, ['common'])),
+            ...(await serverSideTranslations(context.locale, ['sign-in', 'buttons'])),
             session
         }
     };

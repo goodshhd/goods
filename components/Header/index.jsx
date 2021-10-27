@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import settingIcon from "../../public/icon/setting-icon.svg";
 
-import { signOut } from "next-auth/client";
+import {signOut} from "next-auth/client";
 
 import Nav from "../Nav";
 import MobileMenu from "../MobileMenu";
@@ -50,14 +50,12 @@ const Header = () => {
                     >
                       Your Profile
                     </a>
-
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700"
                     >
                       Settings
                     </a>
-
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700"

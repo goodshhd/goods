@@ -6,11 +6,14 @@ import Input from "../Input";
 import Button from "../Button";
 import { useRecoilState } from "recoil";
 import { tableData } from "../../recoil/atoms";
+import {useTranslation} from "next-i18next";
 
 const SubmitForm = () => {
   const [showForm, setShowForm] = useState(false);
-  const [inputVal, setInputVal] = useState("");
+  const [inputVal, setInputVal] = useState({});
   const [_tableData, _setTableData] = useRecoilState(tableData);
+  const { t } = useTranslation('inputs');
+  const { t: tB } = useTranslation('buttons')
 
   const handleInputValue = (e) => {
     setInputVal({
@@ -38,7 +41,7 @@ const SubmitForm = () => {
               <Input
                 name="code"
                 type="text"
-                label="Code"
+                label={t("input-label-code")}
                 value={inputVal.code}
                 placeholder=""
                 onChange={handleInputValue}
@@ -48,14 +51,14 @@ const SubmitForm = () => {
               <Input
                 name="company"
                 type="text"
-                label="Company"
+                label={t("input-label-company")}
                 value={inputVal.company}
                 placeholder=""
                 onChange={handleInputValue}
               />
             </div>
             <div className="flex items-end">
-              <Button buttonText="Add" onClick={handleSubmit} />
+              <Button buttonText={tB('add-button-text')} onClick={handleSubmit} />
             </div>
           </div>
         </div>
