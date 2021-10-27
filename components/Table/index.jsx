@@ -3,21 +3,24 @@ import { useRecoilValue } from "recoil";
 import { filterTableData } from "../../recoil/selectors";
 import TableHeader from "../TableHeader";
 import SubmitForm from "../SubmitForm";
+import {useTranslation} from "next-i18next";
 
 const Table = ({ render }) => {
+  const { t } = useTranslation('table');
+
   const _filterTableData = useRecoilValue(filterTableData);
   const header = [
     {
-      title: "Code",
+      title: t("code-title"),
     },
     {
-      title: "Company",
+      title: t("company-title"),
     },
     {
-      title: "Status",
+      title: t("status-title"),
     },
     {
-      title: "Id",
+      title: t("id-title"),
     },
     {
       title: "",

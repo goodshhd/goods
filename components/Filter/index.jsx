@@ -7,11 +7,14 @@ import DateRangePickerCustom from '../DateRangePickerCustom';
 import {useRecoilState} from 'recoil';
 
 import {codeInputState, companyDataState, selectedFilter} from '../../recoil/atoms';
+import {useTranslation} from "next-i18next";
 
 const Filter = () => {
     const [codeInputValue, setCodeInputValue] = useRecoilState(codeInputState);
     const [,setFilterType] = useRecoilState(selectedFilter);
     const [selectedValue,setSelectedValue] = useRecoilState(companyDataState);
+    const { t } = useTranslation('common');
+    const { t: tI } =  useTranslation('inputs');
 
     const handleChange = data => {
         //TODO:logic for data change
@@ -29,7 +32,7 @@ const Filter = () => {
     return (
         <div className='w-full shadow-xl py-4 px-6 rounded-md'>
             <div className='w-full mb-4'>
-                <span className='mr-auto'>Filter by</span>
+                <span className='mr-auto'>{t("filter-text")}</span>
             </div>
             <div className='flex items-center flex-col md:flex-row md:justify-between'>
                 <DateRangePickerCustom onChange={(e) => handleChange({data: e})}/>
@@ -38,7 +41,7 @@ const Filter = () => {
                         <Input
                             name='filter_code'
                             type='text'
-                            label='Code'
+                            label={tI("input-label-code")}
                             value={codeInputValue}
                             placeholder='VB720'
                             onChange={handleChangeInput}
@@ -46,7 +49,7 @@ const Filter = () => {
                     </div>
                     <div className='mx-4 mt-8 md:mt-0'>
                         <Select
-                            label='Company'
+                            label={tI("input-label-company")}
                             placeholder='ART-UA'
                             selectedValue={selectedValue}
                             onClick={handleSelectCompany}

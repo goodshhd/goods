@@ -11,7 +11,7 @@ import { useTranslation } from 'next-i18next';
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const Workboard = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const renderRows = (item, i) => (
     <TableRows
@@ -27,7 +27,7 @@ const Workboard = () => {
     <section>
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t("common:Workboard")}</h1>
+          <h1 className="text-3xl font-bold text-gray-900">{t("purchase-text")}</h1>
         </div>
       </header>
       <main>
@@ -46,6 +46,7 @@ export default withLayout(Workboard);
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  const namespaces = ['common', 'tabs', 'inputs', 'table', 'buttons']
 
   if (!session) {
     return {
@@ -61,7 +62,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['common'])),
+      ...(await serverSideTranslations(context.locale, namespaces)),
       session,
     },
   };
