@@ -1,5 +1,6 @@
 import { atom } from 'recoil';
 import { signOut } from "next-auth/client";
+import moment from "moment";
 
 
 export const userData = atom({
@@ -11,56 +12,56 @@ export const tableData = atom({
     key: 'tableKey',
     default: [
         {
-            userId: 0,
-            code: 'VB720',
-            company: 'ART-UA',
-            status: 'Active',
             id: 0,
+            date: moment().format("MMM Do YY"),
+            code: 'VB720',
+            status: 'Active',
+            company: 'ART-UA',
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 1,
-            code: 'VB800',
-            company: 'A-UA',
-            status: 'Active',
             id: 1,
+            date: moment().format("MMM Do YY"),
+            code: 'VB800',
+            status: 'Active',
+            company: 'A-UA',
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 2,
-            code: 'VB300',
-            company: 'A-UA',
-            status: 'Active',
             id: 2,
-            title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-            body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-        },
-        {
-            userId: 3,
-            code: 'KB800',
+            date: moment().format("MMM Do YY"),
+            code: 'VB300',
+            status: 'Active',
             company: 'A-UA',
-            status: 'Active',
+            title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        },
+        {
             id: 3,
+            date: moment().format("MMM Do YY"),
+            code: 'KB800',
+            status: 'Active',
+            company: 'A-UA',
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 4,
-            code: 'SB80',
-            company: 'FA-UA',
-            status: 'Active',
             id: 4,
+            date: moment().format("MMM Do YY"),
+            code: 'SB80',
+            status: 'Active',
+            company: 'FA-UA',
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 5,
-            code: 'EB00',
-            company: 'RRR-UA',
-            status: 'Active',
             id: 5,
+            date: moment().format("MMM Do YY"),
+            code: 'EB00',
+            status: 'Active',
+            company: 'RRR-UA',
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
@@ -107,3 +108,8 @@ export const headerTabsState = atom({
     key: 'headerKey',
     default: []
 });
+
+export const datePickerState = atom({
+    key: 'dateState',
+    default: null
+})

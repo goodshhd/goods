@@ -32,7 +32,7 @@ const Workboard = () => {
             key={`${i}-${item.id}`}
             row1={item.company}
             row2={item.code}
-            row3={item.userId}
+            row3={item.date}
             row4={item.status}
             onDelete={() => handleDelete(item.id)}
         />

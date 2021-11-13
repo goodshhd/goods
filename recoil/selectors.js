@@ -3,17 +3,8 @@ import {
   tableData,
   codeInputState,
   selectedFilter,
-  companyDataState,
+  companyDataState, datePickerState,
 } from "./atoms";
-
-export const userState = selector({
-  key: "charCountState", // unique ID (with respect to other atoms/selectors)
-  get: ({ get }) => {
-    const value = get();
-
-    return value;
-  },
-});
 
 export const filterTableData = selector({
   key: "filterTableData",
@@ -22,6 +13,7 @@ export const filterTableData = selector({
 
     const selected = get(selectedFilter);
     const selectedData = get(companyDataState);
+    const selectedDate = get(datePickerState);
 
     const filteredValue = get(codeInputState);
 
@@ -30,6 +22,8 @@ export const filterTableData = selector({
         return initialData.filter((item) => item.code.includes(filteredValue));
       case "company":
         return initialData.filter((item) => item.company === selectedData);
+      case "date":
+        return initialData.filter((item) => item.date === selectedDate);
       default:
         return initialData;
     }
