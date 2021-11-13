@@ -11,6 +11,9 @@ const Table = ({ render }) => {
   const _filterTableData = useRecoilValue(filterTableData);
   const header = [
     {
+      title: t("date-title"),
+    },
+    {
       title: t("code-title"),
     },
     {
@@ -18,9 +21,6 @@ const Table = ({ render }) => {
     },
     {
       title: t("status-title"),
-    },
-    {
-      title: t("id-title"),
     },
     {
       title: "",

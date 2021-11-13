@@ -6,7 +6,7 @@ import DateRangePickerCustom from '../DateRangePickerCustom';
 
 import {useRecoilState} from 'recoil';
 
-import {codeInputState, companyDataState, selectedFilter} from '../../recoil/atoms';
+import {codeInputState, companyDataState, datePickerState, selectedFilter} from '../../recoil/atoms';
 import {useTranslation} from "next-i18next";
 
 const Filter = () => {
@@ -15,11 +15,13 @@ const Filter = () => {
     const [selectedValue,setSelectedValue] = useRecoilState(companyDataState);
     const { t } = useTranslation('common');
     const { t: tI } =  useTranslation('inputs');
+    const [,setDate] = useRecoilState(datePickerState)
 
     const handleChange = data => {
-        //TODO:logic for data change
-        console.log(data);
+        setDate(data.data.start.format("MMM Do YY"));
+        setFilterType('date');
     };
+
     const handleChangeInput = (e) => {
         setCodeInputValue(e.target.value);
         setFilterType('code');

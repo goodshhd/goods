@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo, useMemo } from "react";
 import SmallButton from "../SmallButton";
 import plusIcon from "../../public/icon/fi_plus-square.svg";
 import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
@@ -7,18 +7,20 @@ import Button from "../Button";
 import { useRecoilState } from "recoil";
 import { tableData } from "../../recoil/atoms";
 import {useTranslation} from "next-i18next";
+import moment from "moment";
 
 const SubmitForm = () => {
   const [showForm, setShowForm] = useState(false);
   const [inputVal, setInputVal] = useState({});
   const [_tableData, _setTableData] = useRecoilState(tableData);
   const { t } = useTranslation('inputs');
-  const { t: tB } = useTranslation('buttons')
+  const { t: tB } = useTranslation('buttons');
 
   const handleInputValue = (e) => {
     setInputVal({
       ...inputVal,
-      userId: 1,
+      id: _tableData.length + 1,
+      date: moment().format("MMM Do YY"),
       [e.target.name]: e.target.value,
       status: "Active",
     });
