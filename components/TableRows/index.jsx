@@ -1,8 +1,7 @@
 import React from 'react';
-import Button from "../Button";
 import Tag from "../Tag";
 
-const TableRows = ({row1, row2, row3, row4}) => {
+const TableRows = ({row1, row2, row3, row4, onDelete}) => {
     return (
         <div className='flex justify-between'>
             <div className='py-3 px-6 px-auto text-xs font-medium text-gray-500 flex items-start justify-start w-24'>
@@ -18,7 +17,7 @@ const TableRows = ({row1, row2, row3, row4}) => {
                 <div>{row3}</div>
             </div>
             <div className='py-3 px-6 text-xs font-medium text-gray-500 ßflex items-start justify-start w-24 cursor-pointer'>
-                <div className='text-red-500'>Delete</div>
+                <div className='text-red-500' onClick={onDelete}>Delete</div>
             </div>
         </div>
     );
