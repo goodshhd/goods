@@ -11,11 +11,11 @@ export const tableData = atom({
     key: 'tableKey',
     default: [
         {
-            userId: 1,
+            userId: 0,
             code: 'VB720',
             company: 'ART-UA',
             status: 'Active',
-            id: 1,
+            id: 0,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
@@ -29,38 +29,38 @@ export const tableData = atom({
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 1,
+            userId: 2,
             code: 'VB300',
             company: 'A-UA',
             status: 'Active',
-            id: 1,
+            id: 2,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 1,
+            userId: 3,
             code: 'KB800',
             company: 'A-UA',
             status: 'Active',
-            id: 1,
+            id: 3,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 1,
+            userId: 4,
             code: 'SB80',
             company: 'FA-UA',
             status: 'Active',
-            id: 1,
+            id: 4,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
         {
-            userId: 1,
+            userId: 5,
             code: 'EB00',
             company: 'RRR-UA',
             status: 'Active',
-            id: 1,
+            id: 5,
             title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
             body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
         },
