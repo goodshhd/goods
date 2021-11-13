@@ -1,8 +1,9 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { RecoilRoot } from "recoil";
 import { Provider } from "next-auth/client";
-import PropTypes from "prop-types";
 
 const Providers = ({ children, pageProps }) => (
   <Provider
@@ -17,8 +18,8 @@ const Providers = ({ children, pageProps }) => (
 );
 
 Providers.propTypes = {
-    children: PropTypes.node,
-    pageProps: PropTypes.object
+  children: PropTypes.node,
+  pageProps: PropTypes.object,
 };
 
 export default Providers;

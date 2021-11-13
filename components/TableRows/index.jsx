@@ -1,5 +1,6 @@
 import React from 'react';
-import Tag from "../Tag";
+
+import Tag from '../Tag';
 
 const TableRows = ({row1, row2, row3, row4, onDelete}) => {
     return (

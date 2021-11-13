@@ -1,12 +1,15 @@
 import React from "react";
+
 import { useRecoilValue } from "recoil";
-import { filterTableData } from "../../recoil/selectors";
-import TableHeader from "../TableHeader";
+import { useTranslation } from "next-i18next";
+
 import SubmitForm from "../SubmitForm";
-import {useTranslation} from "next-i18next";
+import TableHeader from "../TableHeader";
+
+import { filterTableData } from "../../recoil/selectors";
 
 const Table = ({ render }) => {
-  const { t } = useTranslation('table');
+  const { t } = useTranslation("table");
 
   const _filterTableData = useRecoilValue(filterTableData);
   const header = [
@@ -45,7 +48,7 @@ const Table = ({ render }) => {
           </div>
         </div>
       </div>
-      <div className='fixed right-10 bottom-24'>
+      <div className="fixed right-10 bottom-24">
         <SubmitForm />
       </div>
     </>
