@@ -13,6 +13,7 @@ import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
 import moment from "moment";
 
 import { tableData } from "../../recoil/atoms";
+import useHttp from "../../utils/hooks/useHttp";
 
 const SubmitForm = () => {
   const [showForm, setShowForm] = useState(false);
@@ -20,6 +21,7 @@ const SubmitForm = () => {
   const [_tableData, _setTableData] = useRecoilState(tableData);
   const { t } = useTranslation('inputs');
   const { t: tB } = useTranslation('buttons');
+  const {request} = useHttp()
 
   const handleInputValue = (e) => {
     setInputVal({
@@ -31,8 +33,9 @@ const SubmitForm = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     _setTableData([..._tableData, inputVal]);
+    await request('http://localhost:8000/api', 'POST', inputVal)
     setInputVal("");
   };
 

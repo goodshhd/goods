@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { getSession } from "next-auth/client";
 import { useTranslation } from "next-i18next";
@@ -11,11 +11,20 @@ import withLayout from "../../../utils/hoc/withLayout";
 
 import { tableData } from "../../../recoil/atoms";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import {getTableData} from "../../../service/getTableData";
 
 const Workboard = () => {
-  const [, _setTableData] = useRecoilState(tableData);
+  const [_tableData, _setTableData] = useRecoilState(tableData);
 
   const { t } = useTranslation("common");
+
+  useEffect(() => {
+    getTableData().then(data => {
+      _setTableData((prevData) => [...prevData, ...data])
+    })
+  }, []);
+
+  console.log(_tableData);
 
   const handleDelete = (id) => {
     id === null
