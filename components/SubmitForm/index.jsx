@@ -1,4 +1,4 @@
-import React, { useState, memo, useMemo } from "react";
+import React, { useState } from "react";
 import SmallButton from "../SmallButton";
 import plusIcon from "../../public/icon/fi_plus-square.svg";
 import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
