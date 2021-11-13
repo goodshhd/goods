@@ -1,37 +1,26 @@
-import React from 'react';
+import React from "react";
 
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 
-import {RecoilRoot} from 'recoil';
-import {Provider} from 'next-auth/client';
+import PropTypes from "prop-types";
 
-import PropTypes from 'prop-types';
+import { appWithTranslation } from "next-i18next";
+import Providers from "../components/Providers";
 
-import { appWithTranslation } from 'next-i18next';
-
-const App = ({Component, pageProps}) => {
-    return (
-        <Provider
-            options={{
-                clientMaxAge: 0,
-                keepAlive: 0
-            }}
-            session={pageProps.session}>
-            <RecoilRoot>
-                <Component {...pageProps} />
-            </RecoilRoot>
-        </Provider>
-    );
-};
+const App = ({ Component, pageProps }) => (
+  <Providers pageProps={pageProps}>
+    <Component {...pageProps} />
+  </Providers>
+);
 
 export default appWithTranslation(App);
 
 App.propTypes = {
-    Component: PropTypes.func,
-    pageProps: PropTypes.object
+  Component: PropTypes.func,
+  pageProps: PropTypes.object,
 };
 
 App.defaultProps = {
-    Component: () => {},
-    pageProps: {}
+  Component: () => {},
+  pageProps: {},
 };
