@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import SmallButton from "../SmallButton";
-import plusIcon from "../../public/icon/fi_plus-square.svg";
-import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
+
 import Input from "../Input";
 import Button from "../Button";
+import SmallButton from "../SmallButton";
+
+import { useTranslation } from "next-i18next";
 import { useRecoilState } from "recoil";
-import { tableData } from "../../recoil/atoms";
-import {useTranslation} from "next-i18next";
+
+import plusIcon from "../../public/icon/fi_plus-square.svg";
+import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
+
 import moment from "moment";
+
+import { tableData } from "../../recoil/atoms";
 
 const SubmitForm = () => {
   const [showForm, setShowForm] = useState(false);
