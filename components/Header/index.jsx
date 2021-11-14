@@ -2,26 +2,41 @@ import React, { useState, useRef } from "react";
 
 import settingIcon from "../../public/icon/setting-icon.svg";
 
-import {signOut} from "next-auth/client";
+import { signOut } from "next-auth/client";
 
 import Nav from "../Nav";
+import Logo from "../Logo";
 import MobileMenu from "../MobileMenu";
 import SmallButton from "../SmallButton";
 import DropdownWrapper from "../DropdownWrapper";
 import MobileMenuButton from "../MobileMenuButton";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
-import Logo from "../Logo";
 import LanguageSwitcher from "../LanguageSwitcher";
+import {useTranslation} from "next-i18next";
 
 const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
+  const { t } = useTranslation('header-dropdown');
 
   const handleShowDropDown = () => setShowDropDown(!showDropDown);
   const handleCloseDropDown = () => setShowDropDown(false);
 
   const wrapper = useRef(null);
   useOutsideClick(wrapper, handleCloseDropDown);
+
+  const dropdownData = [
+    {
+      title: t("your-profile-text"),
+    },
+    {
+      title: t("settings-text"),
+    },
+    {
+      title: t("sign-out-text"),
+      handler: signOut
+    },
+  ];
 
   return (
     <nav className="bg-yellow-500">
@@ -42,29 +57,7 @@ const Header = () => {
                   icon={settingIcon}
                   color="bg-yellow-600"
                 />
-                <DropdownWrapper toggle={showDropDown}>
-                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                    >
-                      Your Profile
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                    >
-                      Settings
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      onClick={signOut}
-                    >
-                      Sign out
-                    </a>
-                  </div>
-                </DropdownWrapper>
+                <DropdownWrapper toggle={showDropDown} listData={dropdownData} />
               </div>
             </div>
           </div>
