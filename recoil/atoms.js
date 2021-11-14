@@ -2,7 +2,6 @@ import { atom } from 'recoil';
 import { signOut } from "next-auth/client";
 import moment from "moment";
 
-
 export const userData = atom({
     key: 'userKey',
     default: {}

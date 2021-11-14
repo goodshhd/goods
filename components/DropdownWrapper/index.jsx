@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { memo } from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const DropdownWrapper = ({ children, toggle }) => {
-    return (
-        <>
-            {
-                toggle ? (
-                    children
-                ) : null
-            }
-        </>
-    );
+const CustomDropdown = ({ toggle, listData }) => {
+  const renderDropdownList = (item, i) => (
+    <a
+      href="#"
+      className="block px-4 py-2 text-sm text-gray-700"
+      onClick={item.handler}
+      key={`${item.title}-${i}`}
+    >
+      {item.title}
+    </a>
+  );
+  return (
+    <div
+      className={`${
+        toggle ? "opacity-100" : "opacity-0"
+      } origin-top-right absolute top-10 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none transition duration-300`}
+    >
+      {listData.map(renderDropdownList)}
+    </div>
+  );
 };
 
-export default DropdownWrapper;
+export default memo(CustomDropdown);
 
-DropdownWrapper.propType = {
-    toggle: PropTypes.func,
-    children: PropTypes.any
+CustomDropdown.propType = {
+  toggle: PropTypes.func,
+  listData: PropTypes.array,
 };
 
-DropdownWrapper.defaultProps = {
-    children: <></>,
-    toggle: () => {}
+CustomDropdown.defaultProps = {
+  toggle: () => {},
+  listData: [],
 };
