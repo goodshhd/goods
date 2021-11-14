@@ -14,7 +14,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {getTableData} from "../../../service/getTableData";
 
 const Workboard = () => {
-  const [_tableData, _setTableData] = useRecoilState(tableData);
+  const [,_setTableData] = useRecoilState(tableData);
 
   const { t } = useTranslation("common");
 
@@ -22,9 +22,11 @@ const Workboard = () => {
     getTableData().then(data => {
       _setTableData((prevData) => [...prevData, ...data])
     })
+        .catch(error => {
+          //TODO handle error
+          console.error(error)
+        });
   }, []);
-
-  console.log(_tableData);
 
   const handleDelete = (id) => {
     id === null

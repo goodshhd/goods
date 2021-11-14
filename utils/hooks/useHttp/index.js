@@ -15,6 +15,7 @@ export const useHttp = () => {
             }
         })
             .then(res => res.json())
+            .catch(error => console.error(error))
         if(!response) {
             throw new Error(response?.message || 'Error');
         }
