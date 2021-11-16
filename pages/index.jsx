@@ -20,12 +20,18 @@ export default Home;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  const { email } = useEmailCutter(session.user.email);
+  let userEmail = ''
+
+    if(session) {
+      userEmail = session.user.email
+    }
+
+  const { email } = useEmailCutter(userEmail);
 
   let destination = "/signIn";
 
   if (session) {
-    destination = `/${email}/workboard`;
+    destination = `/${!!email ? email : ''}/workboard`;
   }
 
   return {

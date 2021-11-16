@@ -15,7 +15,7 @@ const linkData = [
     },
 ];
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ dark }) => {
     const {locale} = useRouter();
 
     const activeLinkStyle = 'font-bold bg-yellow-600 rounded-md';
@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
 
     return (
         <div className='flex px-8'>
-            <div className='text-white'>
+            <div className={`${!dark ? 'text-white' : 'text-yellow-900' }`}>
                 {linkData.map(renderLinks)}
             </div>
         </div>
