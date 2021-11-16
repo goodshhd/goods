@@ -11,6 +11,7 @@ import Image from "next/image";
 import Button from "../../components/Button";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const SignIn = () => {
   const { t } = useTranslation("sign-in");
@@ -52,6 +53,9 @@ const SignIn = () => {
             </div>
             <div className="w-48">
               <Button onClick={signIn} buttonText={tB("sign-in-button-text")} />
+            </div>
+            <div className="flex items-center justify-center rounded-md absolute top-0 right-5">
+              <LanguageSwitcher dark />
             </div>
           </div>
         </div>
