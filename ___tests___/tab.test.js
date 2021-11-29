@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/extend-expect";
 
 import { render, screen } from "@testing-library/react";
-import Tab from "../Tab";
+import Tab from "../components/Tab";
 
 describe("Tab", () => {
   it("render Tab component", () => {

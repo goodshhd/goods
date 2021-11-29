@@ -34,6 +34,7 @@
     "react": "17.0.2",
     "react-daterange-picker": "^2.0.1",
     "react-dom": "17.0.2",
+    "react-i18next": "^11.14.3",
     "recoil": "^0.4.1",
     "sqlite3": "5.0.2"
   },
@@ -43,6 +44,8 @@
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "jest": "^27.3.1",
+    "jest-canvas-mock": "^2.3.1",
+    "jest-dom": "^4.0.0",
     "postcss": "^8.3.8",
     "prettier": "2.4.1",
     "tailwindcss": "^2.2.16"

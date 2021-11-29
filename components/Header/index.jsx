@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import settingIcon from "../../public/icon/setting-icon.svg";
+import settingIcon from "/public/icon/setting-icon.svg";
 
 import { signOut } from "next-auth/client";
 
