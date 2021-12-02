@@ -21,7 +21,7 @@ const Nav = () => {
     );
 
     return (
-        <div className='ml-10 flex items-baseline space-x-4'>
+        <div className='ml-10 flex items-baseline space-x-4' role="nav">
             {tabsData.map(renderItems)}
         </div>
     );

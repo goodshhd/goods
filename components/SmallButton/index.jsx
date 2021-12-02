@@ -11,7 +11,7 @@ const SmallButton = ({ handleClick, icon, color }) => (
     onClick={handleClick}
   >
     <span className="sr-only">Open user menu</span>
-    <Image className="h-8 w-8" src={icon} alt="setting" />
+    <Image width={24} height={24} src={icon} alt="setting" />
   </button>
 );
 
