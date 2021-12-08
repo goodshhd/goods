@@ -27,7 +27,7 @@ const MobileMenu = () => {
 
     return (
         <>
-            <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col text-md'>
+            <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col text-md' role="mobileMenu">
                 {menuTabs.map(renderItems)}
             </div>
             <div className='pt-4 pb-3 border-t border-white'>

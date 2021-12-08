@@ -19,7 +19,7 @@ const Select = ({placeholder, label, onClick, selectedValue}) => {
     };
 
     return (
-        <div>
+        <div role="select">
             <label className='block text-sm font-medium text-gray-700'>
                 {label}
             </label>

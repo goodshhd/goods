@@ -11,7 +11,7 @@ const TableHeader = ({ headerData }) => {
   );
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50" role="table-header">
       <div className="flex justify-between">{headerData.map(renderData)}</div>
     </div>
   );

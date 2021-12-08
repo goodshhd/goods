@@ -8,7 +8,7 @@ import Nav from "../Nav";
 import Logo from "../Logo";
 import MobileMenu from "../MobileMenu";
 import SmallButton from "../SmallButton";
-import DropdownWrapper from "../DropdownWrapper";
+import DropdownWrapper from "../CustomDropdown";
 import MobileMenuButton from "../MobileMenuButton";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import LanguageSwitcher from "../LanguageSwitcher";
