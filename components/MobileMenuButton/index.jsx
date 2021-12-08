@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const MobileMenuButton = ({handleMobileMenu}) => (
     <button type='button'
-            className='bg-yellow-600 inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' onClick={handleMobileMenu}>
+            className='bg-yellow-600 inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' onClick={handleMobileMenu} role='mobileMenuButton'>
         <span className='sr-only'>Open main menu</span>
         <svg className='block h-6 w-6' xmlns='http://www.w3.org/2000/svg' fill='none'
              viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'>

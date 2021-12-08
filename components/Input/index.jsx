@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Input = ({placeholder, label, onChange, value, type, name}) => {
     return (
-        <div>
+        <div role="input">
             <label className='text-sm font-medium text-gray-700'>{label || 'Default Input'}</label>
             <div className='mt-1 relative rounded-md shadow-sm'>
                 <input

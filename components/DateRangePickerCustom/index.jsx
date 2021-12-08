@@ -4,8 +4,8 @@ import 'react-daterange-picker/dist/css/react-calendar.css';
 
 import styles from './styles.module.css';
 
-import arrowLeft from '../../public/icon/arrow-left.svg';
-import arrowRight from '../../public/icon/arrow-right.svg';
+import arrowLeft from '/public/icon/arrow-left.svg';
+import arrowRight from '/public/icon/arrow-right.svg';
 
 import DateRangePicker from 'react-daterange-picker';
 
@@ -42,7 +42,7 @@ const DateRangePickerCustom = ({onChange, value}) => {
     };
 
     return (
-        <div className='flex flex-row items-center' ref={wrapper}>
+        <div className='flex flex-row items-center' ref={wrapper} role="datePicker">
             <div className='hidden md:flex'>
                 <SmallButton icon={arrowLeft} color='bg-yellow-500'/>
             </div>

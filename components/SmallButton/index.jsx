@@ -9,6 +9,7 @@ const SmallButton = ({ handleClick, icon, color }) => (
     type="button"
     className={`p-2 max-w-xs ${color} rounded-md flex items-center text-sm`}
     onClick={handleClick}
+    role="small-button"
   >
     <span className="sr-only">Open user menu</span>
     <Image width={24} height={24} src={icon} alt="setting" />

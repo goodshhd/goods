@@ -4,7 +4,7 @@ import Tag from '../Tag';
 
 const TableRows = ({row1, row2, row3, row4, onDelete}) => {
     return (
-        <div className='flex justify-between'>
+        <div className='flex justify-between' role="table-rows">
             <div className='py-3 px-6 px-auto text-xs font-medium text-gray-500 flex items-start justify-start w-24'>
                 <div>{row3}</div>
             </div>
