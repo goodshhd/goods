@@ -10,7 +10,8 @@ module.exports = {
         "\\.(css|less|scss|sass|svg)$": "identity-obj-proxy",
 
         // Handle CSS imports (without CSS modules)
-        '^.+\\.(css|sass|scss|less)$': '<rootDir>/__mocks__/styleMock.js',
+        '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+        '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
 
         /* Handle image imports
         https://jestjs.io/docs/webpack#handling-static-assets */
@@ -27,6 +28,6 @@ module.exports = {
     },
     transformIgnorePatterns: [
         '/node_modules/',
-        '^.+\\.module\\.(css|sass|scss|less)$',
+        '^.+\\.module\\.(css|sass|scss)$',
     ],
 }
