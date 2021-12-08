@@ -30,7 +30,7 @@ const LanguageSwitcher = ({ dark }) => {
     );
 
     return (
-        <div className='flex px-8'>
+        <div className='flex px-8' role="languageSwitcher">
             <div className={`${!dark ? 'text-white' : 'text-yellow-900' }`}>
                 {linkData.map(renderLinks)}
             </div>

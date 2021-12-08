@@ -4,10 +4,10 @@ import Image from "next/image";
 
 import PropTypes from "prop-types";
 
-import logo from "../../public/images/logo-goods-white.svg";
+import logo from "/public/images/logo-goods-white.svg";
 
 const Logo = ({ width = 0, height = 0 }) => (
-  <div className="flex-shrink-0">
+  <div className="flex-shrink-0" role="logo">
     <Image height={height} width={width} src={logo} alt="Workflow" />
   </div>
 );

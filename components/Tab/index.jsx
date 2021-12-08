@@ -9,7 +9,7 @@ const regular = 'text-white hover:bg-yellow-600 hover:text-white px-3 py-2 round
 
 const Tab = ({link, title, pathName, onClick}) => (
     <Link href={link}>
-        <a className={pathName === link ? select : regular} onClick={onClick}>{title}</a>
+        <a className={pathName === link ? select : regular} onClick={onClick} role='tab'>{title}</a>
     </Link>
 );
 

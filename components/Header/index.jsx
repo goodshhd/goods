@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import settingIcon from "../../public/icon/setting-icon.svg";
+import settingIcon from "/public/icon/setting-icon.svg";
 
 import { signOut } from "next-auth/client";
 
@@ -8,7 +8,7 @@ import Nav from "../Nav";
 import Logo from "../Logo";
 import MobileMenu from "../MobileMenu";
 import SmallButton from "../SmallButton";
-import DropdownWrapper from "../DropdownWrapper";
+import DropdownWrapper from "../CustomDropdown";
 import MobileMenuButton from "../MobileMenuButton";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import LanguageSwitcher from "../LanguageSwitcher";
@@ -39,7 +39,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="bg-yellow-500">
+    <nav className="bg-yellow-500" role="header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">

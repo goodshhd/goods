@@ -7,8 +7,8 @@ import SmallButton from "../SmallButton";
 import { useTranslation } from "next-i18next";
 import { useRecoilState } from "recoil";
 
-import plusIcon from "../../public/icon/fi_plus-square.svg";
-import minimizeIcon from "../../public/icon/fi_minimize-2.svg";
+import plusIcon from "/public/icon/fi_plus-square.svg";
+import minimizeIcon from "/public/icon/fi_minimize-2.svg";
 
 import moment from "moment";
 
@@ -40,7 +40,7 @@ const SubmitForm = () => {
   };
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full" role="submit-form">
       <div
         className={`bg-white right-8 rounded-md shadow-xl absolute mr-2 ${ showForm ? "opacity-100" : "opacity-0"} 
         transition duration-300`}

@@ -38,7 +38,7 @@ const Filter = () => {
   };
 
   return (
-    <div className="w-full shadow-xl py-4 px-6 rounded-md">
+    <div className="w-full shadow-xl py-4 px-6 rounded-md" role="filter">
       <div className="w-full mb-4">
         <span className="mr-auto">{t("filter-text")}</span>
       </div>

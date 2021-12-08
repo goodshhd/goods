@@ -15,6 +15,7 @@ const CustomDropdown = ({ toggle, listData }) => {
   );
   return (
     <div
+        role="customDropDown"
       className={`${
         toggle ? "opacity-100" : "opacity-0"
       } origin-top-right absolute top-10 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none transition duration-300`}
