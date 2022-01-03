@@ -1,8 +1,7 @@
 import React from "react";
 
-import Image from "next/image";
-
 import PropTypes from "prop-types";
+import InlineSvg from "../InlineSvg";
 
 const SmallButton = ({ handleClick, icon, color }) => (
   <button
@@ -12,20 +11,20 @@ const SmallButton = ({ handleClick, icon, color }) => (
     role="small-button"
   >
     <span className="sr-only">Open user menu</span>
-    <Image width={24} height={24} src={icon} alt="setting" />
+    <InlineSvg svg={icon} />
   </button>
 );
 
 export default SmallButton;
 
 SmallButton.propTypes = {
-  icon: PropTypes.object,
+  icon: PropTypes.string,
   color: PropTypes.string,
   handleShowDropDown: PropTypes.func,
 };
 
 SmallButton.defaultProps = {
-  icon: {},
+  icon: "",
   color: "",
   handleClick: () => {},
 };

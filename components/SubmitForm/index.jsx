@@ -7,9 +7,6 @@ import SmallButton from "../SmallButton";
 import { useTranslation } from "next-i18next";
 import { useRecoilState } from "recoil";
 
-import plusIcon from "/public/icon/fi_plus-square.svg";
-import minimizeIcon from "/public/icon/fi_minimize-2.svg";
-
 import moment from "moment";
 
 import { tableData } from "../../recoil/atoms";
@@ -38,6 +35,18 @@ const SubmitForm = () => {
     await request('http://localhost:8000/api', 'POST', inputVal)
     setInputVal("");
   };
+
+  const plusIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.6667 2H3.33333C2.59695 2 2 2.59695 2 3.33333V12.6667C2 13.403 2.59695 14 3.33333 14H12.6667C13.403 14 14 13.403 14 12.6667V3.33333C14 2.59695 13.403 2 12.6667 2Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 5.33337V10.6667" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.3335 8H10.6668" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`
+  const minimizeIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.66675 9.33337H6.66675V13.3334" stroke="#E87D00" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 14L6.66667 9.33337" stroke="#E87D00" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3333 6.66663H9.33325V2.66663" stroke="#E87D00" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.33325 6.66667L13.9999 2" stroke="#E87D00" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`
 
   return (
     <div className="flex w-full" role="submit-form">
