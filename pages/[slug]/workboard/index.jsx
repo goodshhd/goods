@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 
 import { getSession } from "next-auth/client";
 import { useTranslation } from "next-i18next";
@@ -12,28 +12,29 @@ import withLayout from "../../../utils/hoc/withLayout";
 import { tableData } from "../../../recoil/atoms";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {getTableData} from "../../../service/getTableData";
+import { useToasts } from "react-toast-notifications";
 
 const Workboard = () => {
   const [,_setTableData] = useRecoilState(tableData);
+  const { addToast } = useToasts();
 
   const { t } = useTranslation("common");
 
   useEffect(() => {
     getTableData().then(data => {
-      _setTableData((prevData) => [...prevData, ...data])
+      _setTableData((prevData) => [...prevData, data])
     })
         .catch(error => {
-          //TODO handle error
-          console.error(error)
+          addToast(error.message, { appearance: 'error' })
         });
   }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = useCallback((id) => {
     id === null
-      ? // TODO: handle error here !
-        console.error("error")
+      ? addToast('Something went wrong', { appearance: 'error' })
       : _setTableData((prevData) => prevData.filter((item) => item.id !== id));
-  };
+    addToast('Deleted', { appearance: 'success' })
+  }, []);
 
   const renderRows = (item, i) => (
     <TableRows

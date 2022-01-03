@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import { RecoilRoot } from "recoil";
 import { Provider } from "next-auth/client";
+import { ToastProvider } from "react-toast-notifications";
 
 const Providers = ({ children, pageProps }) => (
   <Provider
@@ -13,7 +14,11 @@ const Providers = ({ children, pageProps }) => (
     }}
     session={pageProps.session}
   >
-    <RecoilRoot>{children}</RecoilRoot>
+    <RecoilRoot>
+      <ToastProvider autoDismiss autoDismissTimeout={3000}>
+        {children}
+      </ToastProvider>
+    </RecoilRoot>
   </Provider>
 );
 

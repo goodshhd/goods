@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from "next/link";
 import {useRouter} from "next/router";
 
-const linkData = [
-    {
-        href: '/',
-        title: 'EN',
-        locale: 'en'
-    },
-    {
-        href: '/',
-        title: 'UA',
-        locale: 'ua'
-    },
-];
 
 const LanguageSwitcher = ({ dark }) => {
+
+    const linkData = useMemo(() => [
+        {
+            href: '/',
+            title: 'EN',
+            locale: 'en'
+        },
+        {
+            href: '/',
+            title: 'UA',
+            locale: 'ua'
+        },
+    ], []);
+
     const {locale} = useRouter();
 
     const activeLinkStyle = 'font-bold bg-yellow-600 rounded-md';

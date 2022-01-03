@@ -5,5 +5,4 @@ export const getTableData = () => {
         return res.json();
       } else console.error("Something went wrong");
     })
-    .catch((error) => console.error(error));
 };
