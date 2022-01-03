@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 
 import { useRecoilValue } from "recoil";
 import { useTranslation } from "next-i18next";
@@ -12,7 +12,9 @@ const Table = ({ render }) => {
   const { t } = useTranslation("table");
 
   const _filterTableData = useRecoilValue(filterTableData);
-  const header = [
+  const initialTableData = useMemo(() => _filterTableData, []);
+
+  const header = useMemo(() => [
     {
       title: t("date-title"),
     },
@@ -28,7 +30,7 @@ const Table = ({ render }) => {
     {
       title: "",
     },
-  ];
+  ], []);
 
   return (
     <>
@@ -41,7 +43,7 @@ const Table = ({ render }) => {
                   <TableHeader headerData={header} />
                 </div>
                 <div className="bg-white divide-y divide-gray-200">
-                  {render(_filterTableData)}
+                  {render(initialTableData)}
                 </div>
               </div>
             </div>
@@ -55,4 +57,4 @@ const Table = ({ render }) => {
   );
 };
 
-export default Table;
+export default memo(Table);

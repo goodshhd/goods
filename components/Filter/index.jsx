@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, memo} from "react";
 
 import Input from "../Input";
 import Select from "../Select";
@@ -23,19 +23,20 @@ const Filter = () => {
   const { t } = useTranslation("common");
   const { t: tI } = useTranslation("inputs");
 
-  const handleChange = (data) => {
+  const handleChange = useCallback((data) => {
     setDate(data.data.start.format("MMM Do YY"));
     setFilterType("date");
-  };
+  }, []);
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = useCallback((e) => {
     setCodeInputValue(e.target.value);
     setFilterType("code");
-  };
-  const handleSelectCompany = (selected) => {
+  }, []);
+
+  const handleSelectCompany = useCallback((selected) => {
     setSelectedValue(selected);
     setFilterType("company");
-  };
+  }, []);
 
   return (
     <div className="w-full shadow-xl py-4 px-6 rounded-md" role="filter">
@@ -69,4 +70,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export default memo(Filter);
