@@ -71,7 +71,14 @@ export default withLayout(Workboard);
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  const namespaces = ["common", "tabs", "inputs", "table", "buttons", "header-dropdown"];
+  const namespaces = [
+    "tabs",
+    "table",
+    "inputs",
+    "common",
+    "buttons",
+    "header-dropdown"
+  ];
 
   if (!session) {
     return {

@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
-
+import prisma from '../../../lib/prisma';
+import Adapters from 'next-auth/adapters';
 import Providers from 'next-auth/providers';
 
 export default NextAuth({
@@ -14,8 +15,8 @@ export default NextAuth({
     })
   ],
   database: process.env.DATABASE_URL,
-
-  secret: process.env.SECRET,
+  // adapter: Adapters.Prisma.Adapter({ prisma }),
+  // secret: process.env.SECRET,
 
   session: {
     jwt: true,
