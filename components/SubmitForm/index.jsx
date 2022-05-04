@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 import Input from "../Input";
 import Button from "../Button";
+import Toggle from "../Toggle";
 import SmallButton from "../SmallButton";
 
 import { useTranslation } from "next-i18next";
 import { useRecoilState } from "recoil";
+import { useToasts } from "react-toast-notifications";
 
 import moment from "moment";
 
@@ -15,10 +17,12 @@ import useHttp from "../../utils/hooks/useHttp";
 const SubmitForm = () => {
   const [showForm, setShowForm] = useState(false);
   const [inputVal, setInputVal] = useState({});
+  const [toggleState, setToggleState] = useState(false);
   const [_tableData, _setTableData] = useRecoilState(tableData);
   const { t } = useTranslation('inputs');
   const { t: tB } = useTranslation('buttons');
-  const {request} = useHttp()
+  const {request} = useHttp();
+  const { addToast } = useToasts();
 
   const handleInputValue = (e) => {
     setInputVal({
@@ -26,15 +30,19 @@ const SubmitForm = () => {
       id: _tableData.length + 1,
       date: moment().format("MMM Do YY"),
       [e.target.name]: e.target.value,
+      status: toggleState ? 'Active' : "Unactive"
     });
   };
 
-  console.log(inputVal.status.checked);
-
   const handleSubmit = async () => {
-    _setTableData([..._tableData, inputVal]);
-    await request('http://localhosst:8000/api', 'POST', inputVal)
-    setInputVal("");
+    //temporary solution
+    if(inputVal?.company) {
+      _setTableData([..._tableData, inputVal]);
+      await request('http://localhosst:8000/api', 'POST', inputVal)
+      setInputVal("");
+    } else {
+      addToast('Please, fill in the fields', { appearance: 'warning' })
+    }
   };
 
   const plusIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,11 +60,11 @@ const SubmitForm = () => {
   return (
     <div className="flex w-full" role="submit-form">
       <div
-        className={`bg-white right-8 rounded-md shadow-xl absolute mr-2 ${ showForm ? "opacity-100" : "opacity-0"} 
+        className={`bg-white right-8 bottom-0 rounded-md shadow-xl absolute mr-2 ${ showForm ? "opacity-100" : "opacity-0"} 
         transition duration-300`}
       >
-        <div className="py-2 px-10 flex">
-          <div className="flex w-full px-8 py-4">
+        <div className="py-2 px-10 flex flex-col">
+          <div className="flex w-full  py-4">
             <div className="mx-4 mt-8 md:mt-0 w-32">
               <Input
                 name="code"
@@ -78,18 +86,14 @@ const SubmitForm = () => {
               />
             </div>
             <div className="mx-4 mt-8 md:mt-0">
-              <Input
-                  name="status"
-                  type="checkbox"
-                  label="Status"
-                  value={inputVal.status}
-                  placeholder=""
-                  onChange={handleInputValue}
+              <Toggle
+                  toggle={toggleState}
+                  handleToggle={() => setToggleState(!toggleState)}
               />
             </div>
-            <div className="flex items-end">
-              <Button buttonText={tB('add-button-text')} onClick={handleSubmit} />
-            </div>
+          </div>
+          <div className="flex items-end mb-4">
+            <Button buttonText={tB('add-button-text')} onClick={handleSubmit} />
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ const Table = ({ render }) => {
           </div>
         </div>
       </div>
-      <div className="fixed right-10 bottom-24">
+      <div className="fixed right-10 bottom-7">
         <SubmitForm />
       </div>
     </>
