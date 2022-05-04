@@ -12,7 +12,7 @@ const Table = ({ render }) => {
   const { t } = useTranslation("table");
 
   const _filterTableData = useRecoilValue(filterTableData);
-  const initialTableData = useMemo(() => _filterTableData, []);
+  const initialTableData = useMemo(() => _filterTableData, [_filterTableData]);
 
   const header = useMemo(() => [
     {

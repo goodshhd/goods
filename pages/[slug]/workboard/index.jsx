@@ -22,7 +22,7 @@ const Workboard = () => {
 
   useEffect(() => {
     getTableData().then(data => {
-      _setTableData((prevData) => [...prevData, data])
+      _setTableData((prevData) => [...prevData, ...data])
     })
         .catch(error => {
           addToast(error.message, { appearance: 'error' })

@@ -26,13 +26,14 @@ const SubmitForm = () => {
       id: _tableData.length + 1,
       date: moment().format("MMM Do YY"),
       [e.target.name]: e.target.value,
-      status: "Active",
     });
   };
 
+  console.log(inputVal.status.checked);
+
   const handleSubmit = async () => {
     _setTableData([..._tableData, inputVal]);
-    await request('http://localhost:8000/api', 'POST', inputVal)
+    await request('http://localhosst:8000/api', 'POST', inputVal)
     setInputVal("");
   };
 
@@ -74,6 +75,16 @@ const SubmitForm = () => {
                 value={inputVal.company}
                 placeholder=""
                 onChange={handleInputValue}
+              />
+            </div>
+            <div className="mx-4 mt-8 md:mt-0">
+              <Input
+                  name="status"
+                  type="checkbox"
+                  label="Status"
+                  value={inputVal.status}
+                  placeholder=""
+                  onChange={handleInputValue}
               />
             </div>
             <div className="flex items-end">
