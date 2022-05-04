@@ -29,8 +29,6 @@ const SubmitForm = () => {
     });
   };
 
-  console.log(inputVal.status.checked);
-
   const handleSubmit = async () => {
     _setTableData([..._tableData, inputVal]);
     await request('http://localhosst:8000/api', 'POST', inputVal)
